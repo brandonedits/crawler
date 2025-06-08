@@ -1,3 +1,17 @@
  html, body {
-    background-color: #fff;
+    background-color: #000;
+    color: #f1f1f1;
  }
+
+a:link,
+a:visited {
+  color: green;
+}
+
+a:hover {
+  color: #f1f1f1;
+}
+
+a:active {
+  color: grey;
+}

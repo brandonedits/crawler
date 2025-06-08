@@ -7,6 +7,7 @@
     <title>crawler</title>
 </head>
 <body>
+    
     <?php
     
     // find Open Vacancy pdf file
@@ -28,7 +29,10 @@
         if($linkTitle == 'Download Open Vacancy Report'){
             $pdf = $url;
 
-            echo $pdf;
+            echo '<a href="'.$pdf.'" target="_blank">'.$pdf.'</a>';
+
+
+            
         }
         
     }
