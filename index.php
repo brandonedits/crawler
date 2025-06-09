@@ -7,37 +7,16 @@
     <title>crawler</title>
 </head>
 <body>
-    
-    <?php
-    
-    // find Open Vacancy pdf file
-    $fetchUrl = "https://ngmnpublic.azurewebsites.us/open-vacancies/";
-    $urlContent = file_get_contents($fetchUrl);
+   
+<?php
 
-    $dom = new DOMDocument();
-    @$dom->loadHTML($urlContent);
-    $xpath = new DOMXPATH($dom);
-    $href = $xpath->evaluate("/html/body//a"); // get all links on the page
+    include 'functions.php'; 
 
-    foreach ($href as $link){
-        $url = $link->getAttribute('href');
-        $url = filter_var($url, FILTER_SANITIZE_URL);
+    $pdf = findPdf("https://ngmnpublic.azurewebsites.us/open-vacancies/");
 
-        // get anchor tag text
-        $linkTitle = $link->nodeValue;
-        
-        if($linkTitle == 'Download Open Vacancy Report'){
-            $pdf = $url;
+?>
 
-            echo '<a href="'.$pdf.'" target="_blank">'.$pdf.'</a>';
-
-
-            
-        }
-        
-    }
-
-    ?>
+<a href="<?php echo $pdf; ?>" target="_blank"><?php echo $pdf; ?></a>
 
 </body>
 </html>
